@@ -292,11 +292,11 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`."
                 (ctp-crust            (catppuccin-get-color 'crust) (catppuccin-quantize-color (catppuccin-get-color 'crust)))
 
                 (ctp-current          (if (eq catppuccin-flavor 'latte)
-                                          (catppuccin-darken (catppuccin-get-color 'base) 5)
-                                        (catppuccin-lighten (catppuccin-get-color 'base) 5))
+                                           (catppuccin-darken (catppuccin-get-color 'base) 7)
+                                           (catppuccin-lighten (catppuccin-get-color 'base) 7))
                                       (catppuccin-quantize-color (if (eq catppuccin-flavor 'latte)
-                                                                     (catppuccin-darken (catppuccin-get-color 'base) 5)
-                                                                   (catppuccin-lighten (catppuccin-get-color 'base) 5))))))
+                                                                     (catppuccin-darken (catppuccin-get-color 'base) 7)
+                                                                   (catppuccin-lighten (catppuccin-get-color 'base) 7))))))
       (faces '(;; default / basic faces
                (cursor :background ,ctp-rosewater) ;; If you want to change this to a nicer color you can do so by swapping "ctp-rosewater" with another colour var like "ctp-red"
                (default :background ,ctp-base :foreground ,ctp-text)
@@ -331,12 +331,12 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`."
                (trailing-whitespace :inherit warning)
                (window-divider :foreground ,ctp-mantle)
                (vertical-border :foreground ,ctp-mantle)
-               
+
                ;;tty menu
                (tty-menu-enabled-face :foreground ,ctp-text :inverse-video nil :background ,ctp-current)
                (tty-menu-disabled-face :background ,ctp-crust :inverse-video nil :foreground ,ctp-overlay0)
                (tty-menu-selected-face :foreground ,ctp-text :background ,ctp-surface1)
-               
+
                ;; solaire-mode
                (solaire-default-face :background ,ctp-mantle :foreground ,ctp-text)
                (solaire-fringe-face :background ,ctp-mantle :foreground ,ctp-surface1)
@@ -420,6 +420,18 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`."
                ;; diff-refine
                (diff-refine-removed :weight bold)
                (diff-refine-added :weight bold)
+               ;; eshell
+               (eshell-ls-archive :foreground ,ctp-mauve)
+               (eshell-ls-backup :foreground ,ctp-yellow)
+               (eshell-ls-clutter :foreground ,ctp-red :weight bold)
+               (eshell-ls-directory :foreground ,ctp-blue :weight bold)
+               (eshell-ls-executable :foreground ,ctp-green :weight bold)
+               (eshell-ls-missing :foreground ,ctp-red :weight bold)
+               (eshell-ls-product :foreground ,ctp-peach)
+               (eshell-ls-readonly :foreground ,ctp-flamingo)
+               (eshell-ls-special :foreground ,ctp-pink :weight bold)
+               (eshell-ls-symlink :foreground ,ctp-sapphire :weight bold)
+               (eshell-prompt :foreground ,ctp-current :weight bold)
                ;; git-gutter
                (git-gutter:modified :foreground ,ctp-peach)
                (git-gutter:deleted :foreground ,ctp-red)
@@ -971,26 +983,26 @@ Must be one of `mocha`, `macchiato`, `frappe`, or `latte`."
                ;; term
                (term :foreground ,ctp-text :background ,ctp-base)
                (term-color-black ,@(if (eq catppuccin-flavor 'latte)
-                                       (list :foreground ctp-subtext1  :background ctp-subtext1)
-                                     (list :foreground ctp-surface1 :background ctp-surface1)))
+                                  (list :foreground ctp-subtext1  :background ctp-overlay0)
+                                (list :foreground ctp-surface1 :background ctp-surface1)))
                (term-color-black-white ,@(if (eq catppuccin-flavor 'latte)
-                                             (list :foreground ctp-subtext0 :background ctp-subtext0)
-                                           (list :foreground ctp-surface2 :background ctp-surface2)))
-               (term-color-red :foreground ,ctp-red :background ,ctp-red)
+                                  (list :foreground ctp-subtext0 :background ctp-subtext0)
+                                (list :foreground ctp-surface2 :background ctp-surface2)))
+               (term-color-red :foreground ,ctp-red :background ,ctp-maroon)
                (term-color-bright-red :foreground ,ctp-red :background ,ctp-red)
-               (term-color-green :foreground ,ctp-green :background ,ctp-green)
+               (term-color-green :foreground ,ctp-green :background ,ctp-teal)
                (term-color-bright-green :foreground ,ctp-green :background ,ctp-green)
-               (term-color-yellow :foreground ,ctp-yellow :background ,ctp-yellow)
+               (term-color-yellow :foreground ,ctp-yellow :background ,ctp-peach)
                (term-color-bright-yellow :foreground ,ctp-yellow :background ,ctp-yellow)
-               (term-color-blue :foreground ,ctp-blue :background ,ctp-blue)
+               (term-color-blue :foreground ,ctp-blue :background ,ctp-lavender)
                (term-color-bright-blue :foreground ,ctp-blue :background ,ctp-blue)
-               (term-color-magenta :foreground ,ctp-pink :background ,ctp-pink)
+               (term-color-magenta :foreground ,ctp-pink :background ,ctp-mauve)
                (term-color-bright-magenta :foreground ,ctp-pink :background ,ctp-pink)
-               (term-color-cyan :foreground ,ctp-teal :background ,ctp-teal)
+               (term-color-cyan :foreground ,ctp-sky :background ,ctp-sapphire)
                (term-color-bright-cyan :foreground ,ctp-teal :background ,ctp-teal)
                (term-color-white ,@(if (eq catppuccin-flavor 'latte)
-                                       (list :foreground ctp-surface2  :background ctp-surface2)
-                                     (list :foreground ctp-subtext1 :background ctp-subtext1)))
+                                  (list :foreground ctp-surface0  :background ctp-surface2)
+                                (list :foreground ctp-subtext1 :background ctp-subtext1)))
                (term-color-bright-white ,@(if (eq catppuccin-flavor 'latte)
                                               (list :foreground ctp-surface1 :background ctp-surface1)
                                             (list :foreground ctp-subtext0 :background ctp-subtext0)))
